@@ -94,21 +94,21 @@ class HelpTypst(Star):
         parts = event.message_str.strip().split(maxsplit=1)
         return parts[1].strip() if len(parts) > 1 else None
 
-    @filter.command("helps")
+    @filter.command("帮助")
     async def show_menu(self, event: AstrMessageEvent):
         """显示指令菜单"""
         query = self._parse_query(event)
         async for r in self._handle_request(event, self.cmd_analyzer, "AstrBot 指令菜单", "command", query):
             yield r
 
-    @filter.command("events")
+    @filter.command("活动")
     async def show_events(self, event: AstrMessageEvent):
         """显示事件监听列表"""
         query = self._parse_query(event)
         async for r in self._handle_request(event, self.evt_analyzer, "AstrBot 事件监听", "event", query):
             yield r
 
-    @filter.command("filters")
+    @filter.command("过滤")
     async def show_filters(self, event: AstrMessageEvent):
         """显示过滤器详情"""
         query = self._parse_query(event)
